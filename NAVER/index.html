@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>21.07.19 html</title>
+        <style>
+            * {
+                margin: 0; /* 바깥 여백 */
+                padding: 0; /* 안쪽 여백 */
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 1200px;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            /* 주석 */
+            header {
+                width: 100%;
+                height: 180px;
+                position: relative;
+            }
+            #logo {
+                width: 250px;
+                position: absolute;
+                top: 30px;
+                left: 40px;
+            }
+            #search {
+                position: absolute;
+                top: 50px;
+                left: 300px;
+            }
+            #search input:nth-child(1){
+                border: 2px solid #04cf5c;
+                width: 550px;
+                height: 50px;
+            }
+            #search input:nth-child(2) {
+                background-color: #04cf5c;
+                border: none;
+                color: white;
+                width: 50px;
+                height: 50px;
+                position: relative;
+                top: 1.2px;
+                left: -6px;
+            }
+            .login {
+                border: 1px solid #04cf5c;
+                padding: 5px;
+                width: 90%;
+                margin-bottom: 5px;
+            }
+            .login_bth {
+                background: #04cf5c;
+                color: white;
+                padding: 10px;
+                width: 90%;
+                border: none;
+            }
+            img {
+                width: 100%;
+            }
+            .nav_container {
+                display: flex;
+                width: 1200px;
+                margin: 0 auto;
+            }
+            nav {
+                border-top: 1px solid #ccc;
+                background-color: white;
+                box-shadow: 0 2px 2px #ccc;
+                /* 그림자 : x축 y축 번짐정도 색상 */
+                padding: 10px 5px 10px 5px;
+                /* 안쪽여백 : 상 우 하  좌 (위부터 시계방향) */
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                
+            }
+            nav a:hover {
+                color: #04cf5c;
+            }
+            nav a {
+                flex: 1;
+                color: #333; /* 글자 색 */
+                text-decoration: none; /* 밑줄 제거 */
+                font-weight: bold; /* 글자 굵게 */
+                font-size: 1em; /* 글자 크기 */
+                text-align: center;
+                transition: 0.5s;
+            }
+            article {
+                width: 1200px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            section {
+                border: 1px solid #ccc;
+            }
+            section:nth-child(1), section:nth-child(3) {
+                width: 69%;
+                margin-top: 10px;
+            }
+            section:nth-child(2) {
+                width: 30%;
+                height: 150px;
+                margin-top: 10px;
+                margin-left: 10px;
+
+            }
+            section:nth-child(4) {
+                width: 30%;
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+            section:nth-child(2) form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+            }
+            input:focus {
+                outline: none;
+            }
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            li {
+                width: 25%;
+                padding: 10px;
+                list-style: none; /* 불릿 제거 */
+                border: 1px solid #eee;
+                position: relative;
+            }
+            li:hover a {
+                display: flex;
+            }
+            li a {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                background: #eee;
+                position: absolute;
+                top: 0;
+                left: 0;
+                text-decoration: none;
+                color: #333;
+            }
+            .content {
+                text-decoration: none;
+                color: #333;
+                display: flex;
+                padding: 5px;
+            }
+            .con_img {
+                flex: 0.5;
+                height: 150px;
+                overflow: hidden; /* 넘치는 부분 안보이게*/
+            }
+            .content img {
+                transition: 0.3s;
+            }
+            .content:hover img {
+                transform: scale(1.1);
+            }
+            .con_txt {
+                flex: 1.5;
+                font-size: 0.9em;
+                padding-left: 10px;
+            }
+            section:nth-child(4) {
+                overflow: hidden;
+            }
+            .slide {
+                display: flex;
+                position: relative;
+                animation: mov 5s infinite ;
+            }
+            @keyframes mov {
+                0% {
+                    left: 0%;
+                }
+                30% {
+                    left: -100%;
+                }
+                60% {
+                    left: -200%;
+                }
+                100% {
+                    left: -300%;
+                }
+            }
+            footer {
+                background-color: #eee;
+                border-top: 1px solid #ccc;
+                width: 100%;
+                height: 100px;
+                margin-top: 10px;
+            }
+            /*div {
+                border: 2px solid green;
+                width: 100px;
+                display: inline-block;
+            }
+            span {
+                border: 2px dotted navy;
+                width: 100px;
+                display: inline-block;
+            }*/
+            #top_bth {
+                position: fixed;
+                right: 30px;
+                bottom: 30px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #333;
+                box-shadow: 1px 1px 2px gray;
+                background-color: white;
+                z-index: 1;
+            }
+            #top_bth:hover {
+                background-color: #04cf5c;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- top 버튼 -->
+        <a href="#" id="top_bth">
+            ↑
+        </a>
+
+        <!--주석-->
+
+        <header>
+            <div class="container">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="로고">
+                </a>
+            </div>
+            <div id="search">
+                <form>
+                    <input type="search">
+                    <input type="submit" value="검색">
+                </form>
+            </div>
+        </div>
+            <!--메뉴-->
+            <nav>
+                <div class="nav_container">
+                    <a href="#">메일</a>
+                    <a href="#">카페</a>
+                    <a href="#">블로그</a>
+                    <a href="#">지식IN</a>
+                    <a href="#">쇼핑</a>
+                    <a href="#">뉴스</a>
+                    <a href="#">TV</a>
+                    <a href="#">사전</a>
+                    <a href="#">증권</a>
+                    <a href="#">책</a>
+                    <a href="#">웹툰</a>
+                    <a href="#">지도</a>
+                    <a href="#">부동산</a>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <article>
+                <section>
+                    <ul>
+                        <li><img src="images/newslogo8.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo5.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo4.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo2.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo4.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo6.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo3.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo7.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo7.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo1.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo9.png"><a href="#">내용보기</a></li>
+                        <li><img src="images/newslogo10.png"><a href="#">내용보기</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <form>
+                        <input type="text" placeholder="아이디" class="login">
+                        <input type="password" placeholder="비밀번호" class="login">
+                        <input type="submit" value="로그인" class="login_bth">
+                    </form>
+                </section>
+                <section>
+                    <a href="#" class="content">
+                        <div class="con_img">
+                            <img src="images/livingimg.jpg">
+                        </div>
+                        <div class="con_txt">
+                            <p>
+                                <strong>이사 그 후의 변화</strong><br>
+                                고민끝에 고른 가구, 조명들이 배송되고 
+                                평소에 갖고 싶었던 빈티지 가구들을 보려다니며 '내꺼다' 싶은 것들을 모셔와 
+                                배치하며 완성해 나갔습니다.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="content">
+                        <div class="con_img">
+                            <img src="images/travelimg.jpg">
+                        </div>
+                        <div class="con_txt">
+                            <p>
+                                <strong>보라카이 “화이트 비치”와 팔라완 엘니도 “낙판 비치”</strong><br> 
+                                이 두 장소는 지난 3월 트립어드바이저에서 선정한 
+                                “2021 트래블러 초이스 베스트 오브 베스트 어워드 톱25 비치-아시아” 부문에서 
+                                각각 12위, 18위에 이름을 올린 명실공히 필리핀 대표 해변이다. 
+                                필리핀관광부는 환경의 달 6월을 맞아 두 해변을 청정 해변으로 선정했다.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="content">
+                        <div class="con_img">
+                            <img src="images/foodimg.jpg">
+                        </div>
+                        <div class="con_txt">
+                            <p>
+                                <strong>함께 먹을 때 약 되는 음식, 독 되는 음식</strong><br>
+                                사람 관계처럼 음식에도 잘 어우러지는 것이 있어 잘 맞는 것끼리 먹으면 
+                                소화 흡수가 잘 되고 음식 맛도 좋아진다. 
+                                반면 함께 먹으면 소화 흡수에 방해가 되고 지방으로 쌓이거나 
+                                독을 발생시키는 식품이 있다. 그동안 우리는 단순히 “감과 게는 함께 먹으면 안 좋으니 따로 먹어라”는 
+                                식의 단편적인 교육을 받아왔다. 
+                                이제 한 발 더 나아가 잘 못 섞어 먹었을 때 어떻게 인체에 해가 되는지 
+                                그 원리를 알아보자.
+                            </p>
+                        </div>
+                    </a>
+                </section>
+                <section>
+                    <div class="slide">
+                        <img src="images/img3.jpg">
+                        <img src="images/img.jpg">
+                        <img src="images/img2.jpg">
+                        <img src="images/img3.jpg">
+                    </div>
+                </section>
+            </article>
+        </div>
+        <footer>
+            <div class="container">
+                카피라이트
+            </div>
+        </footer>
+    </body>
+</html>
