@@ -1,0 +1,303 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Jua', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+li {
+    list-style: none;
+}
+img {
+    width: 100%;
+    display: block;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* top 버튼 */
+#top_bth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(255, 197, 197);
+    width: 40px;
+    height: 40px;
+    background-image: linear-gradient(-45deg, rgb(236, 113, 133),rgb(189, 42, 42));
+    border-radius: 50%;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+}
+
+/* header */
+header {
+    height: 100px;
+    background: none;
+}
+#logo {
+    width: 180px;
+    height: 100px;
+    background: none;
+    position: relative;
+    top: 20px;
+    left: 15px;
+}
+#m_bth {
+    width: 50px;
+    height: 50px;
+    
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 2;
+    
+}
+#m_bth span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background: rgb(124, 26, 26);
+    transition: 0.3s;
+}
+#m_bth::before, #m_bth::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 5px;
+    background: rgb(124, 26, 26);
+    transition: 0.3s;
+}
+#m_bth.on span {
+    opacity: 0;
+}
+#m_bth.on::before {
+    transform: rotate(45deg);
+    transform-origin: left;
+    margin-left: 10px;
+}
+#m_bth.on::after {
+    transform: rotate(-45deg);
+    transform-origin: left;
+    margin-left: 10px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    width: 200px;
+    height: 100%;
+    box-shadow: -1px 0 2px gray;
+    padding-top: 80px;
+    display: none;
+    z-index: 1;
+}
+nav>ul>li>a {
+    display: block;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+
+}
+nav>ul>li>ul a {
+    display: block;
+    font-size: 0.8em;
+    padding: 5px 15px;
+    /* 안쪽 여백 : 상하, 좌우 */
+}
+nav>ul>li>ul {
+    display: none;
+}
+
+
+
+/*************** 컨텐츠 ******************/
+
+section {
+    padding: 10px;
+    overflow: hidden;
+}
+#content1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#content1 div {
+    background-color: lightgreen;
+    width: 49%;
+    height: 200px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#tab {
+    display: flex;
+    justify-content: center;
+}
+#tab a {
+    padding: 5px 10px;
+    border-bottom: 3px solid black;
+}
+#tab a.on {
+    border-bottom: 3px solid red;
+}
+#content2 {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#content2 div {
+    background-color: skyblue;
+    height: 200px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#content2 div:nth-child(1) {
+    width: 100%;
+}
+#content2 div:nth-child(2), #content2 div:nth-child(3) {
+    width: 49%;
+}
+#content3 {
+    height: 230px;
+    position: relative;
+}
+#content3 img {
+    position: absolute;
+    overflow: hidden;
+    width: 97.1%;
+    height: 230px;
+
+}
+#content3 img:nth-child(2), #content3 img:nth-child(3) {
+    display: none;
+    overflow: hidden;
+}
+
+
+
+/***************** footer********************/
+
+footer {
+    height: 100px;
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/**************모바일 버전******************/
+@media all and (min-width:320px) {
+
+    #content3 {
+        height: 180px;
+    }
+    #content3 img {
+        height: 100%;
+        width: 94%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+}
+
+/***************테블릿 버전********************/
+@media all and (min-width:768px) {
+    #logo {
+        width: 250px;
+        left: 30px;
+
+    }
+    #content2 {
+        height: fit-content;
+    }
+    #content3 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        height: 230px;
+    }
+    #content3 img {
+        width: 97%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #top_bth {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+/*************** pc 버전 *********************/
+
+@media all and (min-width:1024px) {
+
+    #m_bth {
+        display: none;
+    }
+    nav {
+        display: block;
+        background: none;
+        box-shadow: none;
+        position: absolute;
+        padding-top: 0;
+        height: auto;
+        background: white;
+        top: 30px;
+        right: 30px;
+        width: 400px;
+    }
+    nav>ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav>ul>li>a {
+        background-image: linear-gradient(rgb(0,0,0,0) 92%,rgb(170, 47, 47) 8%);
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        background-position: center;
+        transition: 0.3s;
+    }
+    nav>ul>li>a:hover {
+        background-size: 100% 100%;
+    }
+
+    #tab {
+        font-size: 1.5em;
+    }
+
+    #content1 div {
+        width: 24%;
+    }
+
+    #content2 div:nth-child(1) {
+        width: 49%;
+    }
+    #content2 div:nth-child(2), #content2 div:nth-child(3) {
+        width: 24%;
+    }
+}
