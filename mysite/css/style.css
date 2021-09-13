@@ -41,7 +41,7 @@ ul {
     z-index: 1;
 }
 #top_bth:hover {
-    background-color: rgb(140, 186, 255);
+    background-color: #8cbaff;
     color: white;
 }
 
